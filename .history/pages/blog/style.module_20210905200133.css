@@ -1,0 +1,33 @@
+.card {
+    background:#e7f5ff;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+.card > * {
+    padding: 10px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5rem;
+     margin:0;
+}
+
+.link {
+    color:rgb(0, 0, 63);
+    font-weight: bold;
+    padding:10px 0;
+    transition: background-color 1s ease-in-out, color 1s ease-in-out;
+    padding: 10px;
+    text-transform: uppercase;
+    background: #364fc7;
+    color: white;
+    border-radius: 6px;
+ }
+
+.link:hover{
+    background: white;
+    color: #364fc7;
+}

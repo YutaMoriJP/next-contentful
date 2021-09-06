@@ -1,0 +1,9 @@
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding:20px;
+    background-color: azure;
+    box-shadow: 5px 5px 30px black;
+    border-radius: 10px;
+}

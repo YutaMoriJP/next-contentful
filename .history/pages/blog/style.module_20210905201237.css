@@ -1,0 +1,40 @@
+.card {
+    background:#e7f5ff;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+.card > * {
+    padding: 10px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5rem;
+     margin:0;
+}
+
+.link {
+    display: block;
+    color:rgb(0, 0, 63);
+    margin:10px;
+    width: fit-content;
+    font-weight: bold;
+    padding:10px 0;
+    transition: background-color 1.4s ease-in-out, color 1.4s ease-in-out, transform 0.9s ease-in-out;
+    padding: 10px;
+    text-transform: uppercase;
+    background: #364fc7;
+    color: white;
+    border-radius: 6px;
+ }
+
+.link:hover{
+    background: #087f5b;
+    color: white;
+}
+ 
+.link:active{
+    transform: scale(0.9);
+}

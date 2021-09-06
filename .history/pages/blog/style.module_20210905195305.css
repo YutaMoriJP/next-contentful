@@ -1,0 +1,24 @@
+.card {
+    background:lightblue;
+    padding:10px;
+    box-sizing: border-box;
+}
+
+.title {
+    text-transform: uppercase;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5rem;
+    padding:0;
+    margin:0;
+}
+
+.link {
+    color:darkolivegreen;
+    font-weight: bold;
+    padding:10px;
+    transition: hover 2s ease-in-out;
+ }
+
+.link:hover{
+    background: lightgreen;
+}
