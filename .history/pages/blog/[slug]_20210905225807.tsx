@@ -41,13 +41,7 @@ export const getStaticProps = async context => {
 
 const BlogPost = ({ item }): JSX.Element => {
   console.log(item);
-  return (
-    <Layout>
-      <article>
-        <Post post={item} />
-      </article>
-    </Layout>
-  );
+  return <Layout></Layout>;
 };
 
 export default BlogPost;

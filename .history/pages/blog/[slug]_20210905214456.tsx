@@ -1,7 +1,6 @@
 import { createClient, EntryCollection, Entry } from "contentful";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Post from "../../components/BlogPost";
-import Layout from "../../components/Layout/Layout";
 
 export const getStaticPaths = async (): Promise<{
   paths: { params: { slug: string } }[];
@@ -42,11 +41,9 @@ export const getStaticProps = async context => {
 const BlogPost = ({ item }): JSX.Element => {
   console.log(item);
   return (
-    <Layout>
-      <article>
-        <Post post={item} />
-      </article>
-    </Layout>
+    <article>
+      <Post post={item} />
+    </article>
   );
 };
 

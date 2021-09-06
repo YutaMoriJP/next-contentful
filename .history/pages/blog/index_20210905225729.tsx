@@ -40,6 +40,7 @@ const Blog = ({ posts, success }): JSX.Element => {
         <title>BLOG</title>
       </Head>
       <Layout>
+        {" "}
         {success &&
           posts.map(post => {
             console.log("post", post);

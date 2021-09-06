@@ -43,6 +43,7 @@ const BlogPost = ({ item }): JSX.Element => {
   console.log(item);
   return (
     <Layout>
+      {" "}
       <article>
         <Post post={item} />
       </article>

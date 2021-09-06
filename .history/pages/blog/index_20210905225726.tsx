@@ -39,15 +39,7 @@ const Blog = ({ posts, success }): JSX.Element => {
       <Head>
         <title>BLOG</title>
       </Head>
-      <Layout>
-        {success &&
-          posts.map(post => {
-            console.log("post", post);
-            const { id } = post.sys;
-            return <Content key={id} post={post} />;
-          })}
-        {!success && <h1>Something went wrong...</h1>}
-      </Layout>
+      <Layout></Layout>
     </>
   );
 };
