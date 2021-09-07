@@ -1,23 +1,10 @@
-.container {
-    width:95%;
-    max-width: 900px;
-    margin: auto;
-    background-color: aliceblue;
-    min-height: 100vh;
-    padding: 15px;
-}
-
- 
-
 .card {
-    margin: 20px;
-    border-radius: 6px;
     background:#e7f5ff;
     padding:20px;
     box-sizing: border-box;
 }
 
-.card > *, .container > * {
+.card > * {
     padding: 10px;
 }
 

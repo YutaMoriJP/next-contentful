@@ -17,7 +17,7 @@
     box-sizing: border-box;
 }
 
-.card > *, .container > * {
+.card > *,.container > * {
     padding: 10px;
 }
 

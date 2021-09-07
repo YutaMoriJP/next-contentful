@@ -1,5 +1,6 @@
 import { createClient, EntryCollection, Entry } from "contentful";
-import Post from "../../components/BlogCard/BlogPost";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Post from "../../components/BlogPost";
 import Layout from "../../components/Layout/Layout";
 
 export const getStaticPaths = async (): Promise<{

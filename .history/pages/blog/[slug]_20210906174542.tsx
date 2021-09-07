@@ -1,4 +1,5 @@
 import { createClient, EntryCollection, Entry } from "contentful";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Post from "../../components/BlogCard/BlogPost";
 import Layout from "../../components/Layout/Layout";
 

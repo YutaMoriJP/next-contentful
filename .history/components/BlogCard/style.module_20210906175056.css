@@ -7,7 +7,9 @@
     padding: 15px;
 }
 
- 
+.container > * {
+    padding: 10px;
+}
 
 .card {
     margin: 20px;
@@ -17,7 +19,7 @@
     box-sizing: border-box;
 }
 
-.card > *, .container > * {
+.card > * {
     padding: 10px;
 }
 

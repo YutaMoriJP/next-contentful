@@ -7,17 +7,16 @@
     padding: 15px;
 }
 
- 
-
 .card {
     margin: 20px;
-    border-radius: 6px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 20px grey;
     background:#e7f5ff;
     padding:20px;
     box-sizing: border-box;
 }
 
-.card > *, .container > * {
+.card > * {
     padding: 10px;
 }
 
