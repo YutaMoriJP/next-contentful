@@ -19,8 +19,6 @@
      grid-column: 3 / 11;
      grid-row: 1/11;
      overflow: scroll;
-     -ms-overflow-style: none;  /* IE and Edge */
-     scrollbar-width: none;  /* Firefox */
 }
 
 .main::-webkit-scrollbar {
