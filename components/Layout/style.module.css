@@ -49,15 +49,32 @@
     cursor: pointer;
     padding: 15px;    
     font-weight: bold;
-    margin:0
-
+    margin:0;
+    flex: 1 1 auto;
 }
-
-.link:hover{
-    color:#495057;
-    background-color: aliceblue;
- }
+ 
 
 .active {
     background-color: #495057;
+    border-radius: 5px;
  }
+
+ .nav {
+    display: flex;
+    margin:5px 0;
+    align-items: center;
+    border: 1px solid transparent;
+  }
+ 
+.nav:hover{
+    border:1px solid white;
+    border-radius: 5px;
+}
+
+ .icon{
+      color: white; 
+      width: 40px; 
+      height: 40px 
+ }
+
+ 

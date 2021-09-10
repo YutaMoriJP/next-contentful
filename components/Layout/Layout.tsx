@@ -1,6 +1,8 @@
 import style from "./style.module.css";
 import Sidebar from "./Sidebar";
 import { motion } from "framer-motion";
+import { BiHome, BiBook } from "react-icons/bi";
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -15,8 +17,18 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <aside className={style.sidebar}>
         <Sidebar
           nav={[
-            { name: "HOME", id: 0, path: "/" },
-            { name: "BLOG", id: 1, path: "/blog" },
+            {
+              name: "HOME",
+              id: 0,
+              path: "/",
+              Icon: <BiHome className={style.icon} />,
+            },
+            {
+              name: "BLOG",
+              id: 1,
+              path: "/blog",
+              Icon: <BiBook className={style.icon} />,
+            },
           ]}
         />
       </aside>
