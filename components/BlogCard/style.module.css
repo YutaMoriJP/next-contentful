@@ -64,4 +64,7 @@
 .readingTime { 
     border-left: 5px solid darkblue;
 }
- 
+ .imgContainer{
+     display: flex;
+     justify-content: center;
+ }
