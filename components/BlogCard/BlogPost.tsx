@@ -1,25 +1,30 @@
 import style from "./style.module.css";
 import Image from "next/image";
-import { v4 as uuidv4 } from "uuid";
-import Paragraph from "./Paragraph";
 import { PostProps } from "../../pages/blog/[slug]";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+//import { v4 as uuidv4 } from "uuid";
+//import Paragraph from "./Paragraph";
+/*
 interface Contents {
   value: string;
   id: string;
 }
+*/
 
 const Post = ({ item }: PostProps): JSX.Element => {
-  const { title, readingTime, featuredImage } = item.fields;
+  const { title, readingTime, featuredImage, mainPost } = item.fields;
   const { createdAt } = item.sys;
   const date = new Date(createdAt).toDateString();
-  //gets content from post, and adds a unique id so it can be used as the key value
+  /**
+ *   //gets content from post, and adds a unique id so it can be used as the key value
   const contents: Contents[] = item.fields.mainPost.content.map(
     ({ content: [{ value }] }): Contents => ({
       value,
       id: uuidv4(),
     })
   );
+ */
 
   return (
     <article className={style.container}>
@@ -31,13 +36,11 @@ const Post = ({ item }: PostProps): JSX.Element => {
       <article className={style.imgContainer}>
         <Image
           src={"https:" + featuredImage.fields.file.url}
-          width={300}
-          height={200}
+          width={500}
+          height={300}
         />
       </article>
-      {contents.map(content => (
-        <Paragraph key={content.id}>{content.value}</Paragraph>
-      ))}
+      {documentToReactComponents(mainPost)}
     </article>
   );
 };

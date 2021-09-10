@@ -25,6 +25,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
 };
 
 const Blog = ({ posts }: BlogProps): JSX.Element => {
+  console.log("posts", posts);
   return (
     <>
       <Head>

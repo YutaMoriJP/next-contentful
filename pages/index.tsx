@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/Layout/Layout";
 import style from "../styles/Home.module.css";
-
 const Home = (): JSX.Element => {
   return (
     <>
@@ -17,7 +16,7 @@ const Home = (): JSX.Element => {
               source. Navigate to the blog page to see some dummy blog content.
             </p>
           </div>
-        </section>{" "}
+        </section>
       </Layout>
     </>
   );

@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.3.3",
+    "@contentful/rich-text-types": "^15.3.3",
     "@types/node": "^16.7.10",
     "@types/react": "^17.0.20",
     "contentful": "^8.5.4",

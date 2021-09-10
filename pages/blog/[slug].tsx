@@ -2,10 +2,12 @@ import { createClient, Entry } from "contentful";
 import Post from "../../components/BlogCard/BlogPost";
 import Layout from "../../components/Layout/Layout";
 import Head from "next/head";
+import { Document } from "@contentful/rich-text-types";
+import Skelton from "../../components/Skelton/Skelton";
 
 export const getStaticPaths = async (): Promise<{
   paths: { params: { slug: string } }[];
-  fallback: false;
+  fallback: boolean;
 }> => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -19,8 +21,9 @@ export const getStaticPaths = async (): Promise<{
       params: { slug: item.fields.slug },
     };
   });
-
-  return { paths, fallback: false };
+  //404 page will not be rendered, but <Skelton/> fallback is rendered
+  //and then getStaticProps is run again, and tries to inject data if the data is found
+  return { paths, fallback: true };
 };
 
 export const getStaticProps = async context => {
@@ -33,10 +36,23 @@ export const getStaticProps = async context => {
     content_type: "firstBlogPost",
     "fields.slug": slug,
   });
+
+  //items is empty, meaning data was not found
+  //then the {fallback: true} triggers and the <Skelton/> component renders, but page is redirected
+  //to destination '/'
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   const [item]: Entry<unknown>[] = items;
   return {
     props: { item },
-    revalidate: 600,
+    revalidate: 1,
   };
 };
 
@@ -46,7 +62,8 @@ export interface PostProps {
       title: string;
       readingTime: string;
       featuredImage: { fields: { file: { url: string } } };
-      mainPost: { content: any[] };
+      mainPost: Document;
+      method: any;
     };
     sys: {
       createdAt: string;
@@ -54,11 +71,14 @@ export interface PostProps {
   };
 }
 
-interface BlogPostProps {
-  item: Entry<unknown>;
-}
-
 const BlogPost = ({ item }: PostProps): JSX.Element => {
+  if (!item)
+    return (
+      <Layout>
+        <Skelton />
+      </Layout>
+    );
+
   return (
     <>
       <Head>
