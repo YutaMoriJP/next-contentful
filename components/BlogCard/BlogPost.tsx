@@ -31,8 +31,8 @@ const Post = ({ item }: PostProps): JSX.Element => {
       <article className={style.imgContainer}>
         <Image
           src={"https:" + featuredImage.fields.file.url}
-          width={600}
-          height={300}
+          width={300}
+          height={200}
         />
       </article>
       {contents.map(content => (
