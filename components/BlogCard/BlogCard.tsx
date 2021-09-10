@@ -11,14 +11,18 @@ const Content = ({ post }): JSX.Element => {
 
   return (
     <article className={style.card}>
-      <h1 className={style.title}>{title}</h1>
+      <Link href={`${asPath}/${slug}`}>
+        <h1 className={style.title}>{title}</h1>
+      </Link>
       <p>Posted at: {date}</p>
       <Image
         src={"https:" + thumbnail.fields.file.url}
         width={thumbnail.fields.file.details.image.width / 4}
         height={thumbnail.fields.file.details.image.height / 6}
       />
-      <p className={style.readingTime}>Reading Time {readingTime} minute.</p>
+      <p className={style.readingTime}>
+        Reading Time {readingTime} minute{+readingTime > 1 ? "s" : ""}.
+      </p>
       <Link href={`${asPath}/${slug}`}>
         <a className={style.link}>Read Post</a>
       </Link>

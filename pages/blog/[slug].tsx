@@ -1,6 +1,7 @@
-import { createClient, EntryCollection, Entry } from "contentful";
+import { createClient, Entry } from "contentful";
 import Post from "../../components/BlogCard/BlogPost";
 import Layout from "../../components/Layout/Layout";
+import Head from "next/head";
 
 export const getStaticPaths = async (): Promise<{
   paths: { params: { slug: string } }[];
@@ -32,21 +33,43 @@ export const getStaticProps = async context => {
     content_type: "firstBlogPost",
     "fields.slug": slug,
   });
-  const [item] = items;
+  const [item]: Entry<unknown>[] = items;
   return {
     props: { item },
     revalidate: 600,
   };
 };
 
-const BlogPost = ({ item }): JSX.Element => {
-  console.log(item);
+export interface PostProps {
+  item: {
+    fields: {
+      title: string;
+      readingTime: string;
+      featuredImage: { fields: { file: { url: string } } };
+      mainPost: { content: any[] };
+    };
+    sys: {
+      createdAt: string;
+    };
+  };
+}
+
+interface BlogPostProps {
+  item: Entry<unknown>;
+}
+
+const BlogPost = ({ item }: PostProps): JSX.Element => {
   return (
-    <Layout>
-      <article>
-        <Post post={item} />
-      </article>
-    </Layout>
+    <>
+      <Head>
+        <title>{item.fields.title}</title>
+      </Head>
+      <Layout>
+        <article>
+          <Post item={item} />
+        </article>
+      </Layout>
+    </>
   );
 };
 

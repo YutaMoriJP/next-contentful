@@ -4,15 +4,9 @@ import { createClient, EntryCollection, Entry } from "contentful";
 import Content from "../../components/BlogCard/BlogCard";
 import Layout from "../../components/Layout/Layout";
 
-type BlogProps =
-  | {
-      posts: Entry<unknown>[];
-      success: true;
-    }
-  | {
-      msg: string;
-      success: false;
-    };
+export type BlogProps = {
+  posts: Entry<unknown>[];
+};
 
 export const getStaticProps: GetStaticProps = async (): Promise<{
   props: BlogProps;
@@ -24,30 +18,23 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
   //request data from contentful
-  try {
-    const { items }: EntryCollection<unknown> = await client.getEntries({
-      content_type: "firstBlogPost",
-    });
-    return { props: { posts: items, success: true }, revalidate: 600 };
-  } catch (error) {
-    return { props: { msg: error.message, success: false }, revalidate: false };
-  }
+  const { items }: EntryCollection<unknown> = await client.getEntries({
+    content_type: "firstBlogPost",
+  });
+  return { props: { posts: items }, revalidate: 600 };
 };
 
-const Blog = ({ posts, success }): JSX.Element => {
+const Blog = ({ posts }: BlogProps): JSX.Element => {
   return (
     <>
       <Head>
         <title>BLOG</title>
       </Head>
       <Layout>
-        {success &&
-          posts.map(post => {
-            console.log("post", post);
-            const { id } = post.sys;
-            return <Content key={id} post={post} />;
-          })}
-        {!success && <h1>Something went wrong...</h1>}
+        {posts.map(post => {
+          const { id } = post.sys;
+          return <Content key={id} post={post} />;
+        })}
       </Layout>
     </>
   );
