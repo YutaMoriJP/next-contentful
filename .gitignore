@@ -35,4 +35,6 @@ yarn-error.log*
 
 .env.local
 
- .history
+.history
+
+.env

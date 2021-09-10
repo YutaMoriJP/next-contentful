@@ -16,6 +16,7 @@ type BlogProps =
 
 export const getStaticProps: GetStaticProps = async (): Promise<{
   props: BlogProps;
+  revalidate: number | false;
 }> => {
   //connects to Contentful, allowing to communicate with contentful
   const client = createClient({
@@ -27,9 +28,9 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
     const { items }: EntryCollection<unknown> = await client.getEntries({
       content_type: "firstBlogPost",
     });
-    return { props: { posts: items, success: true } };
+    return { props: { posts: items, success: true }, revalidate: 600 };
   } catch (error) {
-    return { props: { msg: error.message, success: false } };
+    return { props: { msg: error.message, success: false }, revalidate: false };
   }
 };
 
