@@ -18,8 +18,8 @@
 .main {
      grid-column: 3 / 11;
      grid-row: 1/11;
-     overflow: scroll;
-    
+     overflow-y: scroll;
+     -ms-overflow-style: scroll;
 }
  
 @media screen and (max-width: 900px) {
